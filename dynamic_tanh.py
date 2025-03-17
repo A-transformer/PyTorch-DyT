@@ -58,13 +58,14 @@ def convert_ln_to_dyt(module):
     del module  # Delete the original module
     return module_output
 
+
 if __name__ == "__main__":
     # Example model with LayerNorm layers
     model = nn.Sequential(
         nn.Linear(10, 10),
         nn.LayerNorm(10),
         nn.Conv2d(3, 16, kernel_size=3, padding=1),
-        nn.LayerNorm2d(16),
+        LayerNorm2d(16),  # Corrected usage
         nn.ReLU()
     )
 
@@ -73,3 +74,4 @@ if __name__ == "__main__":
 
     # Print the modified model structure
     print(converted_model)
+
